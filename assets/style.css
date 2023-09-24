@@ -20,6 +20,49 @@
     display: flex;
 }
 
+html.dark .ph-moon,
+html:not(.dark) .ph-sun {
+    display: none;
+}
+
+.running .ph-play-circle,
+html:not(.running) .ph-pause-circle {
+    display: none;
+}
+
+html.dark {
+    --text-color: #fff!important;
+    --bg-color: #323238!important;
+    --bg-card-color: #E1E1E6!important;
+    --text-hover-card-color: #fff!important;
+    --bg-hover-card: #02799D!important;
+}
+
+.sr-only {
+    width: 1px;
+    height: 1px;
+    position: absolute;
+    overflow: hidden;
+
+    margin: -1px;
+    padding: 0px;
+    border: 0;
+    appearance: none;
+}
+
+#toggle-mode {
+    position: absolute;
+    right: 3.2rem;
+    top: 3.2rem;
+    font-size: 3.2rem;
+    line-height: 0;
+
+    color: var(--text-color);
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
+
 main {
     display: flex;
     justify-content: center;
@@ -27,9 +70,12 @@ main {
     margin: auto;
     height: 100vh;
     width: 100vw;
+    color: var(--text-color);
     gap: 15%;
+    background-color: var(--bg-color);
 
 }
+
 
 .timer-box{
     display: flex;
@@ -53,8 +99,14 @@ main {
     border: none;
     background-color: transparent;
     font-size: 5rem;
+    color: var(--text-color);
+    cursor: pointer;
 
 }
+
+.timer-box button:hover{
+    color: var(--bg-hover-card);
+} 
 
 .cards {
     display: grid;
@@ -69,4 +121,21 @@ main {
     align-items: center;
     background-color: var(--bg-card-color);
     border-radius: 24px;
+    cursor: pointer;
 }
+
+.card:hover {
+    background-color: var(--bg-hover-card);
+}
+
+.card:hover path {
+    fill: var(--text-hover-card-color);
+  }
+
+  .actived svg > path {
+    fill: var(--text-hover-card-color);
+  }
+
+  .actived {
+    background-color: var(--bg-hover-card);
+  }
