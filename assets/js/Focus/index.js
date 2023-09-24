@@ -9,4 +9,5 @@ export function start(minutes, seconds) {
     timer.updateDisplay()
 
     event.registerControls()
+    event.registerCards()
 }

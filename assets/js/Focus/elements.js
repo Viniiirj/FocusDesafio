@@ -1,6 +1,6 @@
 export const controls = document.getElementById('controls')
 
-export const app = document.getElementById('app')
+export const cards = document.getElementById('cards')
 
 
 export const minutes = document.getElementById('minutes')

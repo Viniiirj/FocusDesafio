@@ -6,7 +6,7 @@ import * as sounds from './sounds.js'
 export function toggleRunning() {
     state.isRunning = document.documentElement.classList.toggle('running')
 
-    // timer.countdown()
+    timer.countdown()
 
 }
 
@@ -17,51 +17,58 @@ export function reset() {
 }
 
 export function forest() {
-    document.querySelector('#forest')
-    .addEventListener('click', () => {
-        
-    })
+    const forest = document.querySelector('#forest')
+    removeActived()
+    forest.classList.add('actived')
+    stopMusic()
     sounds.buttonForest.play()
 }
 
 export function rain(){
-    document.querySelector('#rain')
-    .addEventListener('click', () => {
-        
-    })
+    const rain = document.querySelector('#rain')
+    removeActived()
+    rain.classList.add('actived')
+    stopMusic()
     sounds.buttonRain.play()
 
 }
 
 export function coffee() {
-    let coffee = document.querySelector('#coffee')
-    coffee.addEventListener('click', () => {
-        coffee.classList.add('active')
-        sounds.buttonCoffee.play()
-        sounds.buttonRain.stop()
-        sounds.buttonForest.stop()
-        sounds.buttonFireplace.stop()
-    })
-
+    const coffee = document.querySelector('#coffee')
+    removeActived()
+    coffee.classList.add('actived')
+    stopMusic()
+    sounds.buttonCoffee.play()
 }
 
 export function fireplace() {
-    let fireplace = document.querySelector('#fireplace')
-    fireplace.addEventListener('click', () => {
-        fireplace.classList.add('active')
-        sounds.buttonCoffee.stop()
-        sounds.buttonRain.stop()
-        sounds.buttonForest.stop()
-        sounds.buttonFireplace.play()
-    })
+    const fireplace = document.querySelector('#fireplace')
+    removeActived()
+    fireplace.classList.add('actived')
+    stopMusic()
     sounds.buttonFireplace.play()
-
 }
 
 export function menos(){
-
+    sounds.buttonFireplace.play()
 }
 
 export function mais(){
 
 }
+
+function stopMusic(){
+    sounds.buttonCoffee.pause()
+    sounds.buttonRain.pause()
+    sounds.buttonForest.pause()
+    sounds.buttonFireplace.pause()
+}
+
+function removeActived(){
+    document.querySelector('#forest').classList.remove('actived')
+    document.querySelector('#rain').classList.remove('actived')
+    document.querySelector('#coffee').classList.remove('actived')
+    document.querySelector('#fireplace').classList.remove('actived')
+
+}
+
