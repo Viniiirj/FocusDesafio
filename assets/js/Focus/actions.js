@@ -50,11 +50,25 @@ export function fireplace() {
 }
 
 export function menos(){
-    sounds.buttonFireplace.play()
+    let menosMin = 5
+    let minutes = 0
+    if(el.minutes.textContent <= 0) {
+        return
+    } else {
+    minutes = Number(el.minutes.textContent) - menosMin
+    el.minutes.textContent = minutes
+}
 }
 
 export function mais(){
-
+    let maisMin = 5
+    let minutes = 0
+    if(el.minutes.textContent > 59) {
+        return
+    } else {
+        minutes = Number(el.minutes.textContent) + maisMin
+        el.minutes.textContent = minutes
+    }
 }
 
 function stopMusic(){
